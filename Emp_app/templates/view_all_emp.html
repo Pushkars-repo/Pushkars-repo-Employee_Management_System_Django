@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#232525]">
+  
+
+<div class="relative overflow-x-auto shadow-md bg-red">
+    <div class="flex justify-between items-center px-6 py-3">
+        <div class="flex gap-4">
+          <p class="text-2xl text-white">List of Employees</p>
+          <a href="/add_emp" class="text-white bg-blue-500 px-2 py-1 rounded">Add Employee</a>
+        </div>
+        
+        <form action="/fil_emp" method="get">
+
+            <input type="text" name="search" value="{{first_name}}" placeholder="Search Employee..." class="bg-black px-4 w-40 py-2 text-white rounded focus:w-60 outline-none border-none placeholder:text-white placeholder:text-sm transition-all duration-200 ease "/>
+            <button type="submit" class="text-white bg-blue-500 px-2 py-2 rounded">Search</button>
+        </form>
+    </div>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-white text-center uppercase bg-black">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                #
+              </th>
+              <th scope="col" class="px-6 py-3">
+                ID
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  First Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Last Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Salary
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Bonus
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Phone Number
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Role
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Department
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Location
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  HireDate
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Action
+              </th>
+          </tr>
+      </thead>
+      {% for emp in emps %}
+      <tbody>
+          <tr class="bg-[#001524] border-b text-center dark:border-gray-700 hover:bg-[#232525]">
+              <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{forloop.counter}}
+              </td>
+              
+              <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{emp.id}}
+              </td>
+              <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{emp.first_name}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.last_name}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.salary}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.bonus}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.phone}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.role.name}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.dept.name }}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.dept.location}}
+              </td>
+              <td class="px-6 py-4">
+                {{emp.hire_date}}
+              </td>
+              <td class="flex items-center px-6 py-4">
+                  <a href="/edit_emp/{{emp.id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                  <a href="/rem_emp/{{emp.id}}" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+              </td>
+          </tr>
+          
+      </tbody>
+      {% endfor %}
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900">
+    <div class="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
+        <div class=" pt-6 pb-3 sm:mx-auto sm:w-full sm:max-w-sm">
+          <!-- <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"> -->
+          <h2 class="py-3 text-center text-4xl font-bold leading-4 tracking-tight text-white">Edit Employee Details</h2>
+          <div class="border-b-2 border-white mt-4"></div>
+        </div>
+      
+
+        <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form action="/update_emp/{{emp.id}}" method="post">
+            {% csrf_token %}
+            <div>
+              <label for="first_name" class="block text-md font-medium leading-2 text-white">First Name</label>
+              <div class="mt-1">
+                <input type="text" id="first_name" name="first_name" value="{{emp.first_name}}" required class="block w-full rounded-md border-0 py-1.5 px-2 placeholder:text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="mt-1">
+              <label for="last_name" class="block text-md font-medium leading-2 text-white">Last Name</label>
+              <div class="mt-1">
+                <input type="text" id="last_name" name="last_name" value="{{emp.last_name}}"  required class="block w-full rounded-md border-0 py-1.5 px-2 placeholder:text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="mt-1">
+              <label for="salary" class="block text-md font-medium leading-2 text-white">Salary</label>
+              <div class="mt-1">
+                <input type="number" id="salary" name="salary" value="{{emp.salary}}" required class="block w-full rounded-md border-0 py-1.5 placeholder:text-black px-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="mt-1">
+              <label for="bonus" class="block text-md font-medium leading-2 text-white">Bonus</label>
+              <div class="mt-1">
+                <input type="number" id="bonus" name="bonus"  value="{{emp.bonus}}" required class="block w-full rounded-md border-0 py-1.5 px-2 placeholder:text-slate-400 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="mt-1">
+              <label for="phone" class="block text-md font-medium leading-2 text-white">Phone</label>
+              <div class="mt-1">
+                <input type="number" id="phone" name="phone"  value="{{emp.phone}}" required class="block w-full rounded-md border-0 py-1.5 px-2 placeholder:text-slate-400 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+            <div class="mt-1">
+              <label for="dept" class="block text-md font-medium leading-2 text-white">Department</label>
+              <div class="mt-1">
+                <input type="number" id="dept" name="dept" value="{{emp.dept.id}}" required class="block w-full rounded-md border-0 py-1.5 px-2 placeholder:text-slate-400 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+            <div class="mt-1">
+              <label for="role" class="block text-md font-medium leading-2 text-white">Role</label>
+              <div class="mt-1">
+                <input type="number" id="role" name="role" value="{{emp.role.id}}" required class="block w-full rounded-md border-0 py-1.5 px-2 placeholder:text-slate-400 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div>
+              <button type="submit" class=" mt-4 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-md font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update Record</button>
+            </div>
+
+          </form>          
+        </div>
+
+      </div>
+</body>
+</html>
